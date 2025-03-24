@@ -465,7 +465,7 @@ const Navigation: React.FC = () => {
           >
             <Link 
               href="/auth/login" 
-              className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-stone-900 hover:bg-stone-800 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-brand-red hover:bg-red-600 transition-colors"
             >
               Customer Portal
             </Link>
@@ -940,7 +940,7 @@ export default function Home() {
                     
                     <RevealText delay={0.5}>
                       <button 
-                        className="w-full md:w-auto px-8 py-4 bg-teal-700 text-white font-medium hover:bg-teal-600 transition-colors duration-300 hover-effect"
+                        className="w-full md:w-auto px-8 py-4 bg-brand-red text-white font-medium hover:bg-red-600 transition-colors duration-300 hover-effect"
                       >
                         Start a conversation
                       </button>

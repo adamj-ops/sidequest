@@ -51,7 +51,7 @@ export default function AuthCallbackPage() {
   }, [router, searchParams]);
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-black px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-brand-white px-4 sm:px-6 lg:px-8">
       <motion.div 
         className="w-full max-w-md"
         initial={{ opacity: 0, y: -20 }}
@@ -60,12 +60,12 @@ export default function AuthCallbackPage() {
       >
         <div className="mb-8 text-center">
           <Link href="/" className="inline-block">
-            <h1 className="text-4xl font-bold text-white mb-2">OpsFX</h1>
-            <p className="text-gray-400">Customer Portal</p>
+            <h1 className="text-4xl font-bold text-brand-black mb-2">OpsFX</h1>
+            <p className="text-gray-500">Customer Portal</p>
           </Link>
         </div>
         
-        <div className="bg-gray-900 p-8 rounded-lg shadow-xl border border-gray-800">
+        <div className="bg-brand-grey p-8 rounded-lg shadow-md">
           <div className="text-center">
             {status === 'processing' && (
               <motion.div
@@ -97,7 +97,7 @@ export default function AuthCallbackPage() {
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                className="w-16 h-16 bg-red-500 rounded-full mx-auto mb-6 flex items-center justify-center"
+                className="w-16 h-16 bg-brand-red rounded-full mx-auto mb-6 flex items-center justify-center"
               >
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
@@ -111,19 +111,19 @@ export default function AuthCallbackPage() {
               </motion.div>
             )}
             
-            <h2 className="text-2xl font-bold text-white mb-2">
+            <h2 className="text-2xl font-bold text-brand-black mb-2">
               {status === 'processing' ? 'Verifying Your Account' : 
                status === 'success' ? 'Account Verified!' : 
                'Verification Failed'}
             </h2>
             
-            <p className="text-gray-400">{message}</p>
+            <p className="text-gray-600">{message}</p>
             
             {status !== 'processing' && (
               <div className="mt-6">
                 <Link
                   href="/auth/login"
-                  className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-stone-800 hover:bg-stone-700 transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-brand-red hover:bg-red-600 transition-colors"
                 >
                   {status === 'success' ? 'Proceed to Login' : 'Return to Login'}
                 </Link>

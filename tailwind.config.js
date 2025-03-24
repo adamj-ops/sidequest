@@ -17,8 +17,15 @@ module.exports = {
     },
     extend: {
       colors: {
+        // OpsFX brand color palette
+        'brand-red': '#F73A38',
+        'brand-grey': '#E7ECF2',
+        'brand-white': '#FFFFFF',
+        'brand-black': '#252528',
+        
+        // Legacy mappings
         stone: {
-          900: '#1c1917', // OpsFX brand color (stone-900)
+          900: '#252528', // Update to new black
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

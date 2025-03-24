@@ -48,7 +48,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-black px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-brand-white px-4 sm:px-6 lg:px-8">
       <motion.div 
         className="w-full max-w-md"
         initial={{ opacity: 0, y: -20 }}
@@ -57,12 +57,12 @@ export default function RegisterPage() {
       >
         <div className="mb-8 text-center">
           <Link href="/" className="inline-block">
-            <h1 className="text-4xl font-bold text-white mb-2">OpsFX</h1>
-            <p className="text-gray-400">Customer Portal</p>
+            <h1 className="text-4xl font-bold text-brand-black mb-2">OpsFX</h1>
+            <p className="text-gray-500">Customer Portal</p>
           </Link>
         </div>
         
-        <div className="bg-gray-900 p-8 rounded-lg shadow-xl border border-gray-800">
+        <div className="bg-brand-grey p-8 rounded-lg shadow-md">
           <motion.div 
             className="w-full max-w-md mx-auto"
             initial={{ opacity: 0, y: 20 }}
@@ -71,13 +71,13 @@ export default function RegisterPage() {
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="text-center mb-8">
-                <h1 className="text-3xl font-bold mb-2">Create an account</h1>
-                <p className="text-gray-400">Join the OpsFX customer portal</p>
+                <h1 className="text-3xl font-bold mb-2 text-brand-black">Create an account</h1>
+                <p className="text-gray-500">Join the OpsFX customer portal</p>
               </div>
               
               {error && (
                 <motion.div 
-                  className="bg-gray-900 border border-status-error text-status-error px-4 py-3 rounded-md"
+                  className="bg-red-50 border border-brand-red text-brand-red px-4 py-3 rounded-md"
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                 >
@@ -130,19 +130,26 @@ export default function RegisterPage() {
                 variant="filled"
               />
 
-              <Button 
+              <button 
                 type="submit" 
-                fullWidth 
-                isLoading={isLoading}
-                className="mt-6"
+                disabled={isLoading}
+                className="w-full mt-6 bg-brand-red hover:bg-red-600 text-white py-2 px-4 rounded-md transition-colors flex items-center justify-center"
               >
-                Create Account
-              </Button>
+                {isLoading ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Creating Account...
+                  </>
+                ) : 'Create Account'}
+              </button>
 
               <div className="text-center mt-6">
-                <p className="text-gray-400">
+                <p className="text-gray-600">
                   Already have an account?{' '}
-                  <Link href="/auth/login" className="text-accent-primary hover:text-accent-hover transition-colors">
+                  <Link href="/auth/login" className="text-brand-red hover:text-red-600 transition-colors">
                     Sign in
                   </Link>
                 </p>

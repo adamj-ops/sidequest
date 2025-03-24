@@ -33,31 +33,26 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     `;
 
     const labelClasses = `
-      block text-sm font-medium text-gray-300 mb-1
-      ${error ? 'text-status-error' : ''}
+      block text-sm font-medium text-gray-600 mb-1
+      ${error ? 'text-brand-red' : ''}
     `;
 
     const variantClasses = {
-      outlined: 'bg-transparent border border-gray-700 focus:border-accent-primary',
-      filled: 'bg-gray-900 border border-gray-800 focus:bg-gray-800 focus:border-accent-primary',
+      outlined: 'bg-white border border-gray-300 focus:border-brand-red',
+      filled: 'bg-brand-grey border border-gray-300 focus:bg-white focus:border-brand-red',
     };
 
     const inputClasses = `
       block px-4 py-2 w-full
-      text-white placeholder-gray-500
+      text-brand-black placeholder-gray-500
       rounded-md
       transition-all duration-200
-      focus:outline-none focus:ring-2 focus:ring-accent-primary focus:ring-opacity-30
+      focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-opacity-30
       disabled:opacity-60 disabled:cursor-not-allowed
       ${variantClasses[variant]}
-      ${error ? 'border-status-error focus:border-status-error focus:ring-status-error' : ''}
+      ${error ? 'border-brand-red focus:border-brand-red focus:ring-brand-red' : ''}
       ${leftIcon ? 'pl-10' : ''}
       ${rightIcon ? 'pr-10' : ''}
-    `;
-
-    const helperTextClasses = `
-      mt-1 text-sm 
-      ${error ? 'text-status-error' : 'text-gray-500'}
     `;
 
     return (
@@ -80,8 +75,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           )}
         </div>
         
-        {(error || helperText) && (
-          <p className={helperTextClasses}>{error || helperText}</p>
+        {error && (
+          <p className="mt-1 text-sm text-brand-red">{error}</p>
+        )}
+        
+        {helperText && !error && (
+          <p className="mt-1 text-sm text-gray-500">{helperText}</p>
         )}
       </div>
     );

@@ -4,15 +4,15 @@ import Link from 'next/link';
 
 export default function VerificationPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-brand-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 text-center">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-brand-black">
             Check your email
           </h2>
           <div className="mt-8">
             <svg 
-              className="mx-auto h-16 w-16 text-blue-600" 
+              className="mx-auto h-16 w-16 text-brand-red" 
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor" 
@@ -35,7 +35,7 @@ export default function VerificationPage() {
           <p className="text-sm text-gray-500">
             Didn't receive an email?{' '}
             <button 
-              className="font-medium text-blue-600 hover:text-blue-500"
+              className="font-medium text-brand-red hover:text-red-600 transition-colors"
               onClick={() => alert('Resend verification feature to be implemented')}
             >
               Resend verification email
@@ -46,7 +46,7 @@ export default function VerificationPage() {
         <div className="mt-6">
           <Link
             href="/auth/login"
-            className="font-medium text-blue-600 hover:text-blue-500"
+            className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-brand-red hover:bg-red-600 transition-colors"
           >
             Return to login
           </Link>
