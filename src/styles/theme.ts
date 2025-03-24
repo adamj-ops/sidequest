@@ -2,15 +2,15 @@ export const theme = {
   colors: {
     // Primary colors
     background: {
-      primary: '#000000',
-      secondary: '#111111',
-      tertiary: '#1A1A1A',
+      primary: '#FFFFFF',
+      secondary: '#F9F9F9',
+      tertiary: '#F5F5F5',
     },
     text: {
-      primary: '#FFFFFF',
-      secondary: '#E0E0E0',
-      tertiary: '#BBBBBB',
-      muted: '#888888',
+      primary: '#0A0A0A',
+      secondary: '#222222',
+      tertiary: '#444444',
+      muted: '#777777',
     },
     // Accent colors - subtle pastel red
     accent: {
@@ -21,17 +21,17 @@ export const theme = {
     },
     // Extended gray palette
     gray: {
-      50: '#EEEEEE',
-      100: '#DDDDDD',
-      200: '#CCCCCC',
-      300: '#BBBBBB',
-      400: '#AAAAAA',
-      500: '#888888',
-      600: '#666666',
-      700: '#444444',
-      800: '#333333',
-      900: '#222222',
-      950: '#111111',
+      50: '#FAFAFA',
+      100: '#F5F5F5',
+      200: '#EEEEEE',
+      300: '#E0E0E0',
+      400: '#BDBDBD',
+      500: '#9E9E9E',
+      600: '#757575',
+      700: '#616161',
+      800: '#424242',
+      900: '#212121',
+      950: '#0A0A0A',
     },
     // Status colors
     status: {

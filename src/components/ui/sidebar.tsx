@@ -53,7 +53,7 @@ export function SidebarTrigger({ className, ...props }: SidebarTriggerProps) {
 
   return (
     <Button
-      variant="text"
+      variant="ghost"
       size="sm"
       className={cn("h-8 w-8 p-0", className)}
       onClick={toggle}

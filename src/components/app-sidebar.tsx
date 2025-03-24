@@ -55,8 +55,8 @@ export function AppSidebar() {
   const { user, signOut } = useAuth()
 
   return (
-    <SidebarContent>
-      <div className="flex h-16 items-center justify-center border-b border-gray-800">
+    <SidebarContent className="border-r border-gray-200 bg-white">
+      <div className="flex h-16 items-center justify-center border-b border-gray-200">
         <Link 
           href="/dashboard" 
           className="flex items-center gap-2 px-4"
@@ -64,7 +64,7 @@ export function AppSidebar() {
           <span className="flex h-6 w-6 items-center justify-center rounded-md bg-accent-primary text-white font-bold">
             O
           </span>
-          <span className="text-lg font-semibold text-white group-has-[[data-collapsible=icon]]/sidebar-wrapper:hidden">
+          <span className="text-lg font-semibold text-gray-900 group-has-[[data-collapsible=icon]]/sidebar-wrapper:hidden">
             OpsFX
           </span>
         </Link>
@@ -83,8 +83,8 @@ export function AppSidebar() {
                 className={cn(
                   "flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors",
                   isActive 
-                    ? "bg-gray-900 text-white" 
-                    : "text-gray-400 hover:bg-gray-900 hover:text-white"
+                    ? "bg-gray-100 text-gray-900" 
+                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                 )}
               >
                 <Icon className="h-4 w-4" />
@@ -101,16 +101,16 @@ export function AppSidebar() {
       </div>
       
       {user && (
-        <div className="mt-auto border-t border-gray-800 p-4">
+        <div className="mt-auto border-t border-gray-200 p-4">
           <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-full bg-gray-900 flex items-center justify-center text-white">
+            <div className="h-9 w-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-900">
               {user.email ? user.email[0].toUpperCase() : 'U'}
             </div>
             <div className="flex flex-col group-has-[[data-collapsible=icon]]/sidebar-wrapper:hidden">
-              <span className="text-sm font-medium text-white">
+              <span className="text-sm font-medium text-gray-900">
                 {user.email}
               </span>
-              <span className="text-xs text-gray-400">
+              <span className="text-xs text-gray-600">
                 Customer
               </span>
             </div>
@@ -118,7 +118,7 @@ export function AppSidebar() {
           
           <button
             onClick={() => signOut()}
-            className="mt-3 flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm text-gray-400 transition-colors hover:bg-gray-900 hover:text-white group-has-[[data-collapsible=icon]]/sidebar-wrapper:justify-center"
+            className="mt-3 flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900 group-has-[[data-collapsible=icon]]/sidebar-wrapper:justify-center"
           >
             <LogOut className="h-4 w-4" />
             <span className="group-has-[[data-collapsible=icon]]/sidebar-wrapper:hidden">

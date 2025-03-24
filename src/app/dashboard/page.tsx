@@ -28,26 +28,26 @@ const StatCard = ({
   icon: React.ElementType 
 }) => (
   <motion.div 
-    className="rounded-xl bg-gray-900 border border-gray-800 p-6 shadow-lg"
+    className="rounded-xl bg-white border border-gray-200 p-6 shadow-sm"
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.3 }}
   >
     <div className="flex items-center">
-      <div className="flex-shrink-0 bg-gray-800 rounded-md p-3">
+      <div className="flex-shrink-0 bg-gray-100 rounded-md p-3">
         <Icon className="h-5 w-5 text-accent-primary" />
       </div>
       <div className="ml-5 w-0 flex-1">
-        <p className="text-sm font-medium text-gray-400 truncate">
+        <p className="text-sm font-medium text-gray-600 truncate">
           {title}
         </p>
         <div className="flex items-baseline mt-1">
-          <p className="text-2xl font-semibold text-white">
+          <p className="text-2xl font-semibold text-gray-900">
             {value}
           </p>
           <div
             className={`ml-2 flex items-baseline text-sm font-medium ${
-              trend === 'up' ? 'text-green-400' : 'text-red-400'
+              trend === 'up' ? 'text-green-600' : 'text-red-600'
             }`}
           >
             {trend === 'up' ? (
@@ -76,20 +76,20 @@ const ProjectCard = ({
   } 
 }) => (
   <motion.div 
-    className="rounded-xl bg-gray-900 border border-gray-800 p-6 shadow-lg"
+    className="rounded-xl bg-white border border-gray-200 p-6 shadow-sm"
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.3, delay: 0.1 }}
   >
-    <h3 className="text-lg font-medium text-white truncate">{project.name}</h3>
-    <p className="mt-1 text-sm text-gray-400 line-clamp-2">{project.description}</p>
+    <h3 className="text-lg font-medium text-gray-900 truncate">{project.name}</h3>
+    <p className="mt-1 text-sm text-gray-600 line-clamp-2">{project.description}</p>
     
     <div className="mt-4">
       <div className="flex justify-between items-center mb-1">
-        <span className="text-xs font-medium text-gray-400">Progress</span>
-        <span className="text-xs font-medium text-white">{project.progress}%</span>
+        <span className="text-xs font-medium text-gray-600">Progress</span>
+        <span className="text-xs font-medium text-gray-900">{project.progress}%</span>
       </div>
-      <div className="w-full bg-gray-800 rounded-full h-2">
+      <div className="w-full bg-gray-200 rounded-full h-2">
         <div 
           className="bg-accent-primary h-2 rounded-full" 
           style={{ width: `${project.progress}%` }} 
@@ -99,8 +99,8 @@ const ProjectCard = ({
     
     <div className="mt-4 flex items-center justify-between">
       <div className="flex items-center">
-        <FileCheck className="h-4 w-4 text-gray-400 mr-1" />
-        <span className="text-xs text-gray-400">
+        <FileCheck className="h-4 w-4 text-gray-600 mr-1" />
+        <span className="text-xs text-gray-600">
           {project.tasks.completed}/{project.tasks.total} tasks
         </span>
       </div>
@@ -174,16 +174,16 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="flex flex-col gap-4 p-4">
+    <div className="flex flex-col gap-4 p-4 bg-white">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
         <div>
-          <h1 className="text-2xl font-bold text-white">Dashboard</h1>
-          <p className="mt-1 text-sm text-gray-400">
+          <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
+          <p className="mt-1 text-sm text-gray-600">
             Welcome back, {user?.email?.split('@')[0] || 'User'}
           </p>
         </div>
         <div className="mt-4 sm:mt-0">
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-600">
             {new Date().toLocaleDateString('en-US', { 
               weekday: 'long', 
               year: 'numeric', 
@@ -234,7 +234,7 @@ export default function Dashboard() {
       </div>
 
       {/* Recent Projects */}
-      <h2 className="mt-8 text-xl font-semibold text-white">Recent Projects</h2>
+      <h2 className="mt-8 text-xl font-semibold text-gray-900">Recent Projects</h2>
       <div className="mt-4 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {recentProjects.map(project => (
           <ProjectCard key={project.id} project={project} />
@@ -243,8 +243,8 @@ export default function Dashboard() {
 
       {/* Activity Feed */}
       <div className="mt-8">
-        <h2 className="text-xl font-semibold text-white">Recent Activity</h2>
-        <div className="mt-4 rounded-xl bg-gray-900 border border-gray-800 p-6 shadow-lg">
+        <h2 className="text-xl font-semibold text-gray-900">Recent Activity</h2>
+        <div className="mt-4 rounded-xl bg-white border border-gray-200 p-6 shadow-sm">
           <div className="space-y-6">
             {[1, 2, 3].map(i => (
               <motion.div 
@@ -254,16 +254,16 @@ export default function Dashboard() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.2 + (i * 0.1) }}
               >
-                <div className="flex-shrink-0 rounded-full h-10 w-10 bg-gray-800 flex items-center justify-center">
+                <div className="flex-shrink-0 rounded-full h-10 w-10 bg-gray-100 flex items-center justify-center">
                   <span className="text-accent-primary text-xs font-medium">
                     {String.fromCharCode(64 + i)}
                   </span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-white">
+                  <p className="text-sm font-medium text-gray-900">
                     Task updated: <span className="text-accent-primary">Website design review</span>
                   </p>
-                  <p className="text-sm text-gray-400 mt-1">
+                  <p className="text-sm text-gray-600 mt-1">
                     {i === 1 
                       ? 'Updated task status to "In Progress"' 
                       : i === 2 
