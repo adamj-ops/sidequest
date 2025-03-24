@@ -2,9 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { motion, useScroll, useTransform, AnimatePresence, useMotionValueEvent } from 'framer-motion';
+import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Logo } from '@/components/ui/Logo';
 
 // Loading screen component with percentage counter
 interface LoadingScreenProps {
@@ -448,12 +447,12 @@ const Navigation: React.FC = () => {
                     { name: "Work", link: "#work" },
                     { name: "About", link: "#about" },
                     { name: "Contact", link: "#contact" }
-                  ].map((item, index) => (
+                  ].map(item => (
                     <motion.li 
                       key={item.name}
                       initial={{ opacity: 0, x: -40 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.3 + index * 0.1 }}
+                      transition={{ delay: 0.3 }}
                     >
                       <Link 
                         href={item.link} 
@@ -485,7 +484,7 @@ const Navigation: React.FC = () => {
                 >
                   <h3 className="text-gray-400 uppercase text-sm tracking-wider mb-4">Social</h3>
                   <div className="flex flex-wrap gap-x-6 gap-y-3">
-                    {["Instagram", "Twitter", "LinkedIn", "Github"].map((social, index) => (
+                    {["Instagram", "Twitter", "LinkedIn", "Github"].map(social => (
                       <Link key={social} href="#" className="text-lg hover-effect">
                         {social}
                       </Link>
@@ -648,17 +647,17 @@ export default function Home() {
                         services: ["Design Tokens", "Component Libraries", "Automated Workflows", "Design Operations"],
                         delay: 0.6
                       }
-                    ].map((service, index) => (
-                      <div key={index} className="group">
+                    ].map(service => (
+                      <div key={service.title} className="group">
                         <RevealText delay={service.delay} className="h-full">
                           <div className="border border-gray-800 h-full p-8 transition-all duration-500 group-hover:border-gray-600">
                             <h3 className="text-2xl font-bold mb-4 group-hover:text-teal-400 transition-colors duration-300">{service.title}</h3>
                             <p className="text-gray-400 mb-6">{service.description}</p>
                             <ul className="space-y-2">
-                              {service.services.map((item, i) => (
-                                <li key={i} className="text-sm text-gray-500 flex items-center">
+                              {service.services.map(s => (
+                                <li key={s} className="text-sm text-gray-500 flex items-center">
                                   <span className="w-1 h-1 bg-teal-500 rounded-full mr-2"></span>
-                                  {item}
+                                  {s}
                                 </li>
                               ))}
                             </ul>
@@ -710,8 +709,8 @@ export default function Home() {
                         image: "placeholder-4.jpg",
                         delay: 0.4
                       }
-                    ].map((project, index) => (
-                      <RevealText key={index} delay={project.delay} className="h-full">
+                    ].map(project => (
+                      <RevealText key={project.title} delay={project.delay} className="h-full">
                         <div className="group relative aspect-[4/3] bg-zinc-900 overflow-hidden">
                           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                           <div className="absolute inset-0 border border-gray-800 z-20"></div>
@@ -829,8 +828,8 @@ export default function Home() {
                                 value: "Connection",
                                 description: "Technology that feels human"
                               }
-                            ].map((item, index) => (
-                              <li key={index} className="flex items-start">
+                            ].map(item => (
+                              <li className="flex items-start">
                                 <span className="text-teal-500 text-sm mr-3 pt-1">●</span>
                                 <div>
                                   <h4 className="font-semibold mb-1">{item.value}</h4>
@@ -876,8 +875,8 @@ export default function Home() {
                     
                     <RevealText delay={0.4}>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                        {['Name', 'Email', 'Organization', 'Project Brief', 'Timeline', 'Budget Range'].map((field, index) => (
-                          <div key={index} className={`${field === 'Project Brief' ? 'md:col-span-2' : ''}`}>
+                        {['Name', 'Email', 'Organization', 'Project Brief', 'Timeline', 'Budget Range'].map(field => (
+                          <div key={field} className={`${field === 'Project Brief' ? 'md:col-span-2' : ''}`}>
                             <label className="block text-gray-400 text-sm mb-2">{field}</label>
                             {field === 'Project Brief' ? (
                               <textarea 
@@ -936,7 +935,7 @@ export default function Home() {
                     <div>
                       <h4 className="text-sm text-gray-500 uppercase tracking-wider mb-6">Services</h4>
                       <ul className="space-y-3">
-                        {["Digital Strategy", "Experience Design", "Interface Design", "Design Systems", "Frontend Development"].map((service) => (
+                        {["Digital Strategy", "Experience Design", "Interface Design", "Design Systems", "Frontend Development"].map(service => (
                           <li key={service}>
                             <Link href="#services" className="text-gray-400 hover:text-white transition-colors">
                               {service}
@@ -949,7 +948,7 @@ export default function Home() {
                     <div>
                       <h4 className="text-sm text-gray-500 uppercase tracking-wider mb-6">Connect</h4>
                       <ul className="space-y-3">
-                        {["Instagram", "Twitter", "LinkedIn", "Github"].map((social) => (
+                        {["Instagram", "Twitter", "LinkedIn", "Github"].map(social => (
                           <li key={social}>
                             <Link href="#" className="text-gray-400 hover:text-white transition-colors">
                               {social}

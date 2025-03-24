@@ -46,7 +46,7 @@ export function SidebarProvider({
   )
 }
 
-interface SidebarTriggerProps extends React.HTMLAttributes<HTMLButtonElement> {}
+interface SidebarTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export function SidebarTrigger({ className, ...props }: SidebarTriggerProps) {
   const { toggle } = useSidebar()
@@ -90,10 +90,11 @@ export function SidebarContent({ children, className, ...props }: SidebarContent
 
   return (
     <div
-      data-collapsible={open ? "expanded" : "icon"}
+      data-state={open ? "open" : "closed"}
       className={cn(
-        "flex h-screen flex-col overflow-hidden bg-black border-r border-gray-800 transition-all duration-300 ease-in-out",
-        open ? "w-64" : "w-0 md:w-16",
+        "hidden md:flex flex-col h-screen group/sidebar",
+        open ? "w-64" : "w-16",
+        "transition-all duration-300 ease-in-out",
         className
       )}
       {...props}
