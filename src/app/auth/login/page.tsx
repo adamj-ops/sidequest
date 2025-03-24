@@ -3,6 +3,7 @@
 import React from 'react';
 import { LoginForm } from '@/components/auth/LoginForm';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function LoginPage() {
   return (
@@ -14,8 +15,10 @@ export default function LoginPage() {
         transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
       >
         <div className="mb-8 text-center">
-          <h1 className="text-4xl font-bold text-white mb-2">OpsFX</h1>
-          <p className="text-gray-400">Customer Portal</p>
+          <Link href="/" className="inline-block">
+            <h1 className="text-4xl font-bold text-white mb-2">OpsFX</h1>
+            <p className="text-gray-400">Customer Portal</p>
+          </Link>
         </div>
         
         <div className="bg-gray-900 p-8 rounded-lg shadow-xl border border-gray-800">

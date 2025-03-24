@@ -427,6 +427,50 @@ const Navigation: React.FC = () => {
             />
           </div>
         </button>
+        
+        <div className="flex items-center space-x-6">
+          <motion.ul 
+            className="hidden md:flex items-center space-x-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            {[
+              { name: "Home", link: "#hero" },
+              { name: "Services", link: "#services" },
+              { name: "Work", link: "#work" },
+              { name: "About", link: "#about" },
+              { name: "Contact", link: "#contact" }
+            ].map(item => (
+              <motion.li 
+                key={item.name}
+                initial={{ opacity: 0, x: -40 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <Link 
+                  href={item.link} 
+                  className="text-white hover:text-gray-300 transition-colors"
+                >
+                  {item.name}
+                </Link>
+              </motion.li>
+            ))}
+          </motion.ul>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            <Link 
+              href="/auth/login" 
+              className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-stone-900 hover:bg-stone-800 transition-colors"
+            >
+              Customer Portal
+            </Link>
+          </motion.div>
+        </div>
       </div>
       
       <AnimatePresence>
@@ -442,7 +486,7 @@ const Navigation: React.FC = () => {
               <nav className="mb-12">
                 <ul className="space-y-12 md:space-y-6">
                   {[
-                    { name: "Home", link: "#home" },
+                    { name: "Home", link: "#hero" },
                     { name: "Services", link: "#services" },
                     { name: "Work", link: "#work" },
                     { name: "About", link: "#about" },
