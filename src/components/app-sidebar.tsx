@@ -16,6 +16,7 @@ import {
 import { cn } from '@/lib/utils'
 import { useAuth } from '@/context/AuthContext'
 import { SidebarContent } from '@/components/ui/sidebar'
+import { Logo } from '@/components/ui/Logo'
 
 const sidebarLinks = [
   {
@@ -61,11 +62,9 @@ export function AppSidebar() {
           href="/dashboard" 
           className="flex items-center gap-2 px-4"
         >
-          <span className="flex h-6 w-6 items-center justify-center rounded-md bg-accent-primary text-white font-bold">
-            O
-          </span>
+          <Logo size="small" className="flex-shrink-0" />
           <span className="text-lg font-semibold text-gray-900 group-has-[[data-collapsible=icon]]/sidebar-wrapper:hidden">
-            OpsFX
+            Customer Portal
           </span>
         </Link>
       </div>

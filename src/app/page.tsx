@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform, AnimatePresence, useMotionValueEvent } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Logo } from '@/components/ui/Logo';
 
 // Loading screen component with percentage counter
 interface LoadingScreenProps {

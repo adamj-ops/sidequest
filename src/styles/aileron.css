@@ -1,0 +1,24 @@
+/* Aileron Font */
+@font-face {
+  font-family: 'Aileron';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/dotcolon/Aileron-Typeface/fonts/Aileron-Black.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Aileron';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/dotcolon/Aileron-Typeface/fonts/Aileron-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Aileron';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/dotcolon/Aileron-Typeface/fonts/Aileron-Regular.otf') format('opentype');
+}
