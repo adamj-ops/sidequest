@@ -10,9 +10,19 @@ const nextConfig = {
     // Don't fail on TypeScript errors
     ignoreBuildErrors: true,
   },
+  // Disable static site generation for auth pages
+  output: 'standalone',
+  // Disable static optimization for auth routes that need dynamic data
+  experimental: {
+    // Prevents attempting to statically optimize pages that use auth
+    appDir: true,
+  },
+  // Disable static generation for specific paths
+  images: {
+    unoptimized: true
+  },
   // Other Next.js config options
   reactStrictMode: true,
-  swcMinify: true,
 }
 
 module.exports = nextConfig
