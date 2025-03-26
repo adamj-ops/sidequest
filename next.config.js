@@ -16,6 +16,8 @@ const nextConfig = {
   experimental: {
     // Prevents attempting to statically optimize pages that use auth
     appDir: true,
+    // Allow cross-origin requests during development
+    allowedDevOrigins: ['127.0.0.1', 'localhost'],
   },
   // Disable static generation for specific paths
   images: {
@@ -23,6 +25,21 @@ const nextConfig = {
   },
   // Other Next.js config options
   reactStrictMode: true,
+  
+  // Add headers to allow Clipboard API
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Permissions-Policy',
+            value: 'clipboard-read=*, clipboard-write=*'
+          }
+        ]
+      }
+    ];
+  }
 }
 
 module.exports = nextConfig
