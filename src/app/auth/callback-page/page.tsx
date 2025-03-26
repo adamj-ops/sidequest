@@ -1,12 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-export default function AuthCallbackPage() {
+// Create a component that uses the search params
+function AuthCallbackContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [status, setStatus] = useState<'processing' | 'success' | 'error'>('processing');
@@ -133,5 +134,28 @@ export default function AuthCallbackPage() {
         </div>
       </motion.div>
     </div>
+  );
+}
+
+// Wrapper component with Suspense
+export default function AuthCallbackPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex flex-col justify-center items-center bg-brand-white px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-md text-center">
+          <div className="mb-8">
+            <h1 className="text-4xl font-bold text-brand-black mb-2">OpsFX</h1>
+            <p className="text-gray-500">Customer Portal</p>
+          </div>
+          <div className="bg-brand-grey p-8 rounded-lg shadow-md">
+            <div className="w-12 h-12 border-t-2 border-stone-200 border-solid rounded-full mx-auto mb-4 animate-spin"></div>
+            <h2 className="text-xl font-semibold text-brand-black mb-2">Loading</h2>
+            <p className="text-gray-600">Please wait while we verify your account...</p>
+          </div>
+        </div>
+      </div>
+    }>
+      <AuthCallbackContent />
+    </Suspense>
   );
 }

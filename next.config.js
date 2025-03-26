@@ -14,8 +14,6 @@ const nextConfig = {
   output: 'standalone',
   // Disable static optimization for auth routes that need dynamic data
   experimental: {
-    // Prevents attempting to statically optimize pages that use auth
-    appDir: true,
     // Allow cross-origin requests during development
     allowedDevOrigins: ['127.0.0.1', 'localhost'],
   },
